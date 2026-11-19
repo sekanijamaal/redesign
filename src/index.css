@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@theme {
+  --color-caution-yellow: #fff313;
+  --color-midnight-steel: #000000;
+  --color-industrial-white: #eeeeee;
+  --color-carbon: #333333;
+  --color-gunmetal: #4b4b4b;
+  --color-aluminum: #afafaf;
+
+  --font-univers-next-pro: "Univers Next Pro", "DM Sans", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-monument-mono: "ABC Monument Grotesk Mono", "IBM Plex Mono", ui-monospace,
+    SFMono-Regular, Menlo, monospace;
+
+  --radius-md: 6px;
+  --radius-lg: 9px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+
+  --shadow-none: none;
+}
+
+:root {
+  color-scheme: dark;
+  --caution-yellow: #fff313;
+  --midnight-steel: #000000;
+  --industrial-white: #eeeeee;
+  --carbon: #333333;
+  --gunmetal: #4b4b4b;
+  --aluminum: #afafaf;
+  --font-univers-next-pro: "Univers Next Pro", "DM Sans", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-monument-mono: "ABC Monument Grotesk Mono", "IBM Plex Mono", ui-monospace,
+    SFMono-Regular, Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-univers-next-pro);
+  font-weight: 300;
+  background: #000000;
+  color: #eeeeee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li,
+label,
+button,
+input,
+select,
+textarea {
+  font-weight: inherit;
+}
+
+::selection {
+  background: #fff313;
+  color: #000000;
+}
+
+:focus-visible {
+  outline: 2px solid #fff313;
+  outline-offset: 3px;
+}
+
+/* Binary weight type system: 300 for structure, 400 for meta + controls. */
+.type-display {
+  font-size: clamp(2.5rem, 4.45vw, 4rem);
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+  text-wrap: balance;
+}
+
+.type-heading-lg {
+  font-size: clamp(1.875rem, 2.5vw, 2.25rem);
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+  text-wrap: balance;
+}
+
+.type-heading {
+  font-size: 1.5rem;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+}
+
+.type-body {
+  font-size: 1rem;
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+
+.type-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+
+.type-caption {
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.type-mono {
+  font-family: var(--font-monument-mono);
+  font-size: 0.75rem;
+  line-height: 1.67;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.type-micro {
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+/* Binary weight rule: controls read at 400 even when they use a body type class. */
+button.type-body,
+button.type-body-sm,
+a.type-body,
+a.type-body-sm,
+input.type-body-sm,
+select.type-body-sm,
+textarea.type-body-sm {
+  font-weight: 400;
+}
+
+/* Range input: 2px gunmetal track, 18px black thumb with caution ring. */
+input[type="range"].on-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].on-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: #4b4b4b;
+  border-radius: 0;
+}
+
+input[type="range"].on-range::-moz-range-track {
+  height: 2px;
+  background: #4b4b4b;
+  border-radius: 0;
+}
+
+input[type="range"].on-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -8px;
+  border-radius: 6px;
+  background: #000000;
+  border: 2px solid #fff313;
+}
+
+input[type="range"].on-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: #000000;
+  border: 2px solid #fff313;
+}
+
+/* Firefox focus ring is handled globally; hide the default outline on the thumb. */
+input[type="range"].on-range:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #fff313;
+  outline-offset: 3px;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes mb-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mb-fade {
+  animation: mb-fade 0.45s ease both;
+}
+
+/* Sticky sections must not inherit a transform from an ancestor. */
+.sticky-track {
+  position: relative;
+  width: 100%;
+}
+
+/* The yellow act fits inside one viewport on every screen height. */
+.mission-inner {
+  padding-top: clamp(28px, 7vh, 112px);
+  padding-bottom: clamp(28px, 7vh, 112px);
+  row-gap: clamp(14px, 3vh, 40px);
+}
+
+.mission-statement .type-display {
+  font-size: clamp(2rem, min(4.45vw, 6.4vh), 4rem);
+}
+
+@media (min-width: 768px) and (max-height: 980px) {
+  .mission-about {
+    font-size: 0.875rem;
+    line-height: 1.38;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
